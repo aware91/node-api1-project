@@ -22,17 +22,11 @@ server.post('/api/users', (req, res)=>{
   Created.id = shortid.generate();
   user.push(Created);
   res.status(201).json(Created);
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({
-        errorMessage: "User account could not be created",
-        message: err.message
-    });
 });
 
 // Read
 server.get('/api/users', (req, res)=>{
-  res.json(user);
+  res.status(200).json(user);
 });
 
 server.get('/api/users/:id', (req, res)=>{
